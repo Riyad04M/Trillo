@@ -1,0 +1,533 @@
+// //////////////////////////////////////    LOGO
+.logo {
+  height: 3.25rem;
+  margin-left: 2.5rem;
+}
+
+///////////////////////////////////////////////////
+/// SEARCH
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //   background-color: aqua;
+  flex: 0 0 40%;
+  @media only screen and (max-width: 31.25em) {
+   order: 1;
+   flex: 0 0 50%;
+  }
+  &__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-Grey-light-2);
+    border: none;
+    padding: 0.7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    margin-right: -3.25rem;
+    transition: all 0.3s;
+    &:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-Grey-light-3);
+    }
+
+    &::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-Grey-light-4);
+    }
+  }
+  &__input:focus + &__button {
+    background-color: var(--color-Grey-light-3);
+  }
+
+  &__button {
+    border: none;
+    background-color: var(--color-Grey-light-2);
+
+    &:focus {
+      outline: none;
+    }
+  }
+  &__icon {
+    height: 2rem;
+    width: 2rem;
+    stroke: var(--color-Grey-dark-3);
+    // color: var(--color-Grey-dark-3);
+  }
+}
+
+//////////////////////////////////////////
+/// USER NAVIGATTIONn
+
+.user-nav {
+  // flex: 0 0 40%;
+  display: flex;
+  align-self: stretch;
+  // justify-content: space-between;
+  align-items: center;
+
+  //   background-color: bisque;
+  &__icon-box,
+  &__user {
+    padding: 0 2rem;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    &:hover {
+      background-color: var(--color-Grey-light-2);
+    }
+  }
+
+  &__icon-box {
+    position: relative;
+  }
+  &__icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    stroke: var(--color-Grey-dark-2);
+  }
+  &__notification {
+    font-size: 0.8rem;
+    display: block;
+    height: 1.75rem;
+    width: 1.75rem;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #fff;
+    position: absolute;
+    right: 1.1rem;
+    top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__user-photo {
+    height: 4.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+}
+
+///////////////////////////////////
+///  SIDE NAVIGATION
+
+.side-nav {
+  font-size: 1.4rem;
+  list-style: none;
+  margin-top: 3.5rem;
+  @media only screen and (max-width: 56.25em) {
+    display: flex;
+    margin: 0;
+  }
+
+  &__item {
+    position: relative;
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+      @media only screen and (max-width: 56.25em) {
+        margin-bottom: 0rem;
+      }
+    }
+    @media only screen and (max-width: 56.25em) {
+      flex: 1;
+    }
+  }
+
+  &__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 3px;
+    background-color: var(--color-primary);
+    transform: scaley(0);
+    transition: transform 0.2s, width 0.4s cubic-bezier(1, 0, 0, 1) 0.2s,
+      background-color 0.1s;
+  }
+
+  &__item:hover::before,
+  &__item--active::before {
+    transform: scaley(1);
+    width: 100%;
+  }
+
+  &__item:active::before {
+    background-color: var(--color-Primary-light);
+  }
+
+  &__link:link,
+  &__link:visited {
+    color: var(--color-Grey-light-1);
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 1.5rem 3rem;
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    @media only screen and (max-width: 56.25em) {
+      justify-content: center;
+      padding: 1.75rem;
+    }
+    @media only screen and (max-width: 37.5em) {
+      // display: flex;
+      flex-direction: column;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+
+  &__icon {
+    width: 1.75rem;
+    height: 1.75rem;
+    margin-right: 2rem;
+    color: currentColor;
+    @media only screen and (max-width: 37.5em) {
+      margin-right: 0;
+      margin-bottom: 0.75rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+/////////////////////@
+/// LEGAL TEXT
+
+.legal {
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2.5rem;
+  color: var(--color-Grey-light-4);
+  @media only screen and (max-width: 56.25em) {
+    display: none;
+  }
+}
+
+////////////////////////////////
+/// gallery
+
+.gallery {
+  display: flex;
+
+  &__photo {
+    width: 100%;
+    display: block;
+  }
+}
+
+///////////////////////////////////
+/// OVERVIEW
+.overview {
+  display: flex;
+
+  border-bottom: 1px solid var(--color-Grey-dark-3);
+  // justify-content: space-between;
+  align-items: center;
+  &__heading {
+    font-weight: 300;
+    padding: 1.5rem 2rem;
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    @media only screen and (max-width: 37.5em) {
+      font-size: 1.8rem;
+      padding: 1rem 1.5rem;
+    }
+  }
+  &__stars {
+    // margin-right: auto;
+    display: flex;
+  }
+  &__icon-star {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--color-primary);
+    fill: var(--color-primary);
+  }
+  &__location {
+    font-size: 1.2rem;
+    margin-left: auto;
+    margin-right: 1rem;
+    display: flex;
+    gap: 0.75rem;
+  }
+  &__icon-location {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--color-primary);
+  }
+  &__rating {
+    background-color: var(--color-primary);
+    margin-left: 3rem;
+    color: #fff;
+    align-self: stretch;
+    padding: 0rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media only screen and (max-width: 37.5em) {
+      padding: 0 1.5rem;
+    }
+  }
+
+  &__rating-average {
+    font-size: 2.25rem;
+    font-weight: 300;
+    margin-bottom: -3px;
+    @media only screen and (max-width: 37.5em) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__rating-count {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    @media only screen and (max-width: 37.5em) {
+      font-size: .67rem;
+    }
+  }
+}
+
+////////////////////////////
+/// BUTTON INLINE
+
+.btn-inline {
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+  border-bottom: 1px solid currentColor;
+  font-size: inherit;
+  padding-bottom: 2px;
+  display: inline-block;
+  background-color: transparent;
+  transition: all 0.2s;
+  align-self: center;
+
+  & span {
+    margin-left: 3px;
+    transition: all 0.2s;
+  }
+  &:hover {
+    color: var(--color-Grey-dark-1);
+
+    & span {
+      margin-left: 8px;
+    }
+  }
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.25);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: none;
+  }
+}
+
+/////////////////////////////////
+/// PARAGRAPH
+.paragraph:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+//////////////////////////
+///  LISt
+.list {
+  padding: 3rem 0;
+  margin: 3rem 0;
+  list-style: none;
+  border-top: 1px solid var(--color-Grey-light-3);
+  border-bottom: 1px solid var(--color-Grey-light-3);
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    flex: 0 0 50%;
+    margin-bottom: 0.7rem;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    color: var(--color-primary);
+    margin-right: 0.5rem;
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}
+
+/////////////////////////////
+/// RECOMMEND
+
+.recommend {
+  font-size: 1.3rem;
+  color: var(--color-Grey-dark-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__friends {
+    display: flex;
+  }
+  &__photo {
+    box-sizing: content-box;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    &:not(:last-child) {
+      margin-right: -2rem;
+    }
+  }
+}
+
+//////////////////////////////////
+///  REVIEW
+.review {
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+  margin-bottom: 3.5rem;
+  padding: 3rem;
+  overflow: hidden;
+  @media only screen and (max-width: 56.25em) {
+    padding: 2rem;
+  }
+  &__text {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2rem;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__photo {
+    width: 4.75rem;
+    height: 4.75rem;
+    border-radius: 50%;
+    margin-right: 1rem;
+  }
+
+  &__user-box {
+    margin-right: auto;
+  }
+
+  &__user-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  &__user-date {
+    font-size: 1rem;
+    color: var(--color-Grey-dark-3);
+  }
+
+  &__rating {
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--color-primary);
+  }
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    font-size: 20rem;
+    font-family: sans-serif;
+    color: var(--color-Grey-light-2);
+    line-height: 1;
+    z-index: 1;
+  }
+}
+
+////////////////////////
+///  CALL TO ACTION
+
+.cta {
+  padding: 3.5rem 0;
+  text-align: center;
+
+  &__book-now {
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+}
+
+////////////////////////
+///  CALL TO ACTION BUTTON
+.btn {
+  font-size: 1.5rem;
+  border: none;
+  // padding: 2rem 4rem;
+  border-radius: 100px;
+  font-weight: 300;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #ff3366, #ba265d);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  & > * {
+    display: inline-block;
+
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+  }
+
+  &__visible {
+    padding: 2rem 7.5rem;
+  }
+
+  &__invisible {
+    padding: 2rem 0;
+    position: absolute;
+    left: 0;
+    top: -100%;
+  }
+
+  &:hover {
+    background-image: linear-gradient(to left, #ff3366, #ba265d);
+  }
+
+  &:hover &__visible {
+    transform: translateY(100%);
+  }
+
+  &:hover &__invisible {
+    top: 0;
+    // overflow: visible;
+  }
+
+  &:focus {
+    outline: none;
+    animation: pulsate 1s infinite;
+  }
+}
